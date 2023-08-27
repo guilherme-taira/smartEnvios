@@ -21,39 +21,41 @@
                                     <h2 class="grid-title"><i class="fa fa-filter"></i> Filtros</h2>
                                     <hr>
                                     <form action="{{ route('smartenvios.index') }}" method="get">
-                                    <!-- BEGIN FILTER BY CATEGORY -->
-                                    <h4>Status NF:</h4>
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" class="icheck" value="1" name="filter"> Enviada</label>
-                                    </div>
-                                    <div class="checkbox">
-                                        <label><input type="checkbox" class="icheck" value="0" name="filter"> Pendênte</label>
-                                    </div>
-                                    <!-- END FILTER BY CATEGORY -->
+                                        <!-- BEGIN FILTER BY CATEGORY -->
+                                        <h4>Status NF:</h4>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" class="icheck" value="1" name="filter">
+                                                Enviada</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" class="icheck" value="0" name="filter">
+                                                Pendênte</label>
+                                        </div>
+                                        <!-- END FILTER BY CATEGORY -->
 
-                                    <div class="padding"></div>
-                                    <!-- END FILTER BY DATE -->
+                                        <div class="padding"></div>
+                                        <!-- END FILTER BY DATE -->
 
-                                    <div class="padding"></div>
+                                        <div class="padding"></div>
                                 </div>
                                 <!-- END FILTERS -->
                                 <!-- BEGIN RESULT -->
                                 <div class="col-md-9">
-                                    <h2> Pedidos <img src="https://smartenvios.com/wp-content/uploads/2023/01/536x156.png" width="200px" class="float-right"></h2>
+                                    <h2> Pedidos <img src="https://smartenvios.com/wp-content/uploads/2023/01/536x156.png"
+                                            width="200px" class="float-right"></h2>
                                     <hr>
                                     <!-- BEGIN SEARCH INPUT -->
 
 
-                                        <div class="input-group">
+                                    <div class="input-group">
 
-                                            <input type="text" name="orderid" class="form-control"
-                                                placeholder="Nº Pedido">
-                                            <span class="input-group-btn">
-                                                <button class="btn btn-primary" type="submit"><i
-                                                        class="fa fa-search"></i></button>
-                                            </span>
+                                        <input type="text" name="orderid" class="form-control" placeholder="Nº Pedido">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="submit"><i
+                                                    class="fa fa-search"></i></button>
+                                        </span>
 
-                                        </div>
+                                    </div>
                                     </form>
                                     <!-- END SEARCH INPUT -->
 
@@ -62,14 +64,30 @@
                                     <div class="table-responsive">
                                         <table class="table table-hover">
                                             <tbody>
+
                                                 @foreach ($data as $pedido)
                                                     <tr>
                                                         <td class="number text-center">{{ $pedido->Orderid }}</td>
-                                                        <td class="image"><img
-                                                                src="https://www.bootdey.com/image/400x300/5F9EA0"
-                                                                alt=""></td>
+                                                        <td class="image">
+                                                            <div class="image-container">
+                                                                @if ($pedido->produtosPainel)
+                                                                    @foreach (json_decode($pedido->produtosPainel) as $image)
+                                                                        @foreach ($image->pictures as $picture)
+                                                                            <div>
+                                                                                <img src="{{ $picture->thumbs->{30}->http }}"
+                                                                                    alt="foto produto"
+                                                                                    class="rounded border border-warning image">
+                                                                            </div>
+                                                                        @endforeach
+                                                                    @endforeach
+                                                                @else
+                                                                    <img src="https://www.bootdey.com/image/400x300/5F9EA0"
+                                                                        class="img-thumbnail" alt="">
+                                                                @endif
+                                                            </div>
+                                                        </td>
                                                         <td class="product">
-                                                            <strong>Data Pedido: {{ $pedido->dataPedido }}</strong><br>{{ $pedido->nomeCliente }}
+                                                            <strong>{{ $pedido->shipment }}</strong><br>{{ $pedido->nomeCliente }}
                                                         </td>
 
                                                         <td class="price text-right">R${{ $pedido->total }}</td>
