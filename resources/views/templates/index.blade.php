@@ -28,10 +28,9 @@
             color: #fff;
         }
 
-        body {
-            margin-top: 20px;
-            background-color: #98048a;
-        }
+        body{margin-top:20px;
+background:#eee;
+}
 
         .btn {
             margin-bottom: 5px;
