@@ -125,8 +125,11 @@
                                             Produtos
                                         </div>
                                         <ul class="list-group list-group-flush ">
-                                            @foreach (json_decode($data->produtos) as $produto)
-                                                <li class="list-group-item">{{ $produto->description }}</li>
+                                            @foreach (json_decode($data->produtosPainel) as $produto)
+                                                @foreach ($produto->pictures as $picture)
+
+                                                @endforeach
+                                                <li class="list-group-item"><img src="{{$picture->http}}" alt="" srcset="" width="50px">{{ $produto->description }}</li>
                                             @endforeach
                                         </ul>
                                     </div>
