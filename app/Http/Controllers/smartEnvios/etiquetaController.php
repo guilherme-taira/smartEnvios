@@ -37,7 +37,7 @@ class etiquetaController extends Controller
         $endpoint = URL_BASE . $resource;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $endpoint);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,json_encode($postData));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($postData));
         curl_setopt($ch, CURLOPT_HTTPHEADER, [$tipoData, $token]);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -47,7 +47,9 @@ class etiquetaController extends Controller
         $requisicao = json_decode($response, true);
 
         if ($httpCode == 200) {
-            UelloPedidos::where('freight_order_id',$this->getData()->getFreightOrderId())->update(['etiqueta' => $requisicao["body-json"]["url"]]);
+            if ($requisicao["body-json"]["url"]) {
+                UelloPedidos::where('freight_order_id', $this->getData()->getFreightOrderId())->update(['etiqueta' => $requisicao["body-json"]["url"]]);
+            }
         } else {
             return $requisicao;
         }
@@ -56,7 +58,7 @@ class etiquetaController extends Controller
     /**
      * Get the value of data
      */
-    public function getData():requestSmartEnviosController
+    public function getData(): requestSmartEnviosController
     {
         return $this->data;
     }
