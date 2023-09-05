@@ -28,9 +28,10 @@
             color: #fff;
         }
 
-        body{margin-top:20px;
-background:#eee;
-}
+        body {
+            margin-top: 20px;
+            background: #eee;
+        }
 
         .btn {
             margin-bottom: 5px;
@@ -92,7 +93,8 @@ background:#eee;
             overflow: hidden;
             display: flex;
         }
-        .image{
+
+        .image {
             margin-right: 5px;
         }
     </style>

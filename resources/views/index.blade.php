@@ -104,7 +104,18 @@
                                                                             class="bi bi-filetype-xml"></i></button></a>
                                                             </td>
                                                         @endif
-                                                        </a>
+
+                                                        @if ($pedido->etiqueta)
+                                                            <td><a
+                                                                    href="{{$pedido->etiqueta}}"><button
+                                                                        class="btn btn-success"><i
+                                                                            class="bi bi-printer"></i></button></a>
+                                                            </td>
+                                                        @else
+                                                            <td><button class="btn btn-warning disabled"><i
+                                                                        class="bi bi-printer" @disabled(true)></i></button>
+                                                            </td>
+                                                        @endif
                                                     </tr>
                                                 @endforeach
                                             </tbody>
