@@ -47,7 +47,7 @@ class etiquetaController extends Controller
         $requisicao = json_decode($response, true);
 
         if ($httpCode == 200) {
-            if ($requisicao["body-json"]["url"]) {
+            if (isset($requisicao["body-json"]["url"])) {
                 UelloPedidos::where('freight_order_id', $this->getData()->getFreightOrderId())->update(['etiqueta' => $requisicao["body-json"]["url"]]);
             }
         } else {
