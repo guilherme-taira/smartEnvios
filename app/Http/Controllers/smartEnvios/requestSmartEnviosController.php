@@ -42,7 +42,6 @@ class requestSmartEnviosController extends Controller
             'file' => $cFile,
         ];
 
-
         // URL PARA REQUISICAO ENDPOINT
         $endpoint = URL_BASE . $resource;
         echo $endpoint . "<br>";

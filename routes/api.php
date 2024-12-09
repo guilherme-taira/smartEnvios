@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('v1')->group(function () {
-    Route::post("etiqueta",[testeController::class,'getEtiqueta']);
+    Route::post("etiqueta",[requestUploadController::class,'getEtiqueta']);
 });

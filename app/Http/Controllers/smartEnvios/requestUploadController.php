@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class requestUploadController extends Controller
 {
+
+
+    public function getEtiqueta(){
+
+    }
+
+
     public function RequestUpload(Request $request)
     {
 
