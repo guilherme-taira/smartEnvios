@@ -1,20 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\SmartEnvios;
-
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use PDO;
 
-interface Cadastrar{
-
-    public function CadastrarOrdem();
-    public function UpdateOrdem();
-    public function DeleteOrdem();
-}
-
-
-class CadastrarNewOrder implements Cadastrar {
+class CadastraNewOrder extends Controller{
 
     // VARIAVEIS PRIVADAS
 
