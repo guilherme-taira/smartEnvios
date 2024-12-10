@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SmartEnvios;
+namespace App\Http\Controllers\smartEnvios;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -11,7 +11,7 @@ class TrayOrderComplete extends Controller
 
     private $dados;
 
-    public function __construct(CadastrarNewOrder $dados)
+    public function __construct(CadastraNewOrder $dados)
     {
         $this->dados = $dados;
     }
@@ -92,7 +92,7 @@ class TrayOrderComplete extends Controller
     /**
      * Get the value of dados
      */
-    public function getDados(): CadastrarNewOrder
+    public function getDados(): CadastraNewOrder
     {
             return $this->dados;
     }

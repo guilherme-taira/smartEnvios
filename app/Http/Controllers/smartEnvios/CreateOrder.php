@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SmartEnvios;
+namespace App\Http\Controllers\smartEnvios;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\SmartEnvios;
+namespace App\Http\Controllers\smartEnvios;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ class CotacaoOrder extends Controller
         private $createOrder;
         private $token;
 
-        public function __construct(CadastrarNewOrder $createOrder, $token)
+        public function __construct(CadastraNewOrder $createOrder, $token)
         {
             $this->createOrder = $createOrder;
             $this->token = $token;
