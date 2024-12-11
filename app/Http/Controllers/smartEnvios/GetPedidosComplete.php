@@ -215,7 +215,7 @@ class GetPedidosComplete extends Controller
             // CADASTRAR PEDIDO SMART ENVIOS
             $cotacao = new CotacaoFrete($OrderGravaBanco,"jsVC2QAsoHijI0ULb7hkyku9kq8117nw");
             $dadosCotacao = $cotacao->resource();
-            $newOrder = new createOrder($db,$n_pedido,"jsVC2QAsoHijI0ULb7hkyku9kq8117nw",$dadosCotacao,$n_pedido,$complemento,$cpf,$dados->Order->Customer->name,$zipcode,$rua,$telefone,$numero,$bairro,$complemento,$dados->Order->Customer->email,1,$produtosVenda);
+            $newOrder = new CreateOrder($db,$n_pedido,"jsVC2QAsoHijI0ULb7hkyku9kq8117nw",$dadosCotacao,$n_pedido,$complemento,$cpf,$dados->Order->Customer->name,$zipcode,$rua,$telefone,$numero,$bairro,$complemento,$dados->Order->Customer->email,1,$produtosVenda);
             $newOrder->resource();
         }else{
             $peso = 0;

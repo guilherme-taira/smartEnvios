@@ -11,7 +11,7 @@ interface smartEnviosRequest {
 }
 const URL_BASE_SMART_ENVIOS = "https://api.smartenvios.com/v1/";
 
-class createOrder implements smartEnviosRequest
+class CreateOrder implements smartEnviosRequest
 {
     private $BandoPdo;
     private $id_order;
